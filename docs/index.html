@@ -1,10 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>RazorVine Jewellery Co.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #0f0f0f;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 80px 10%;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    header h1 {
+      font-size: 48px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 600px;
+      color: #bcbcbc;
+    }
+
+    section {
+      padding: 70px 10%;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background-color: #151515;
+      padding: 30px;
+      border: 1px solid #2a2a2a;
+    }
+
+    footer {
+      padding: 40px 10%;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+    }
+
+    a {
+      color: #eaeaea;
+      text-decoration: none;
+      border-bottom: 1px solid #555;
+    }
+
+    a:hover {
+      border-color: #fff;
+    }
+  </style>
 </head>
+
 <body>
+
+<header>
   <h1>RazorVine Jewellery Co.</h1>
-  <p>Custom designed and handcrafted jewellery.</p>
+  <p>
+    Custom-designed and handcrafted jewellery.
+    One-to-one collaboration from concept to completion.
+  </p>
+</header>
+
+<section>
+  <h2>About</h2>
+  <p>
+    RazorVine Jewellery Co. is an independent jewellery studio specialising in bespoke pieces.
+    Each project is designed in direct collaboration with the client, ensuring every piece
+    reflects personal meaning, intention, and refined craftsmanship.
+  </p>
+</section>
+
+<section>
+  <h2>Custom Commissions</h2>
+  <div class="columns">
+    <div class="card">
+      <h3>Consultation</h3>
+      <p>
+        Each commission begins with a discussion of ideas, inspiration, and purpose.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Design & Materials</h3>
+      <p>
+        Designs are refined and materials selected to suit both aesthetics and longevity.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Craft & Completion</h3>
+      <p>
+        The piece is handcrafted with precision and delivered once complete.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Available Pieces</h2>
+  <p>
+    Alongside bespoke commissions, RazorVine Jewellery Co. occasionally releases
+    ready-to-purchase pieces. Availability is limited and updated periodically.
+  </p>
+</section>
+
+<section>
+  <h2>Enquiries</h2>
+  <p>
+    For custom commissions or questions, please get in touch.
+  </p>
+  <p>
+    Email: <a href="mailto:your@email.com">your@email.com</a><br>
+    Instagram: <a href="#">@razorvine</a>
+  </p>
+</section>
+
+<footer>
+  © RazorVine Jewellery Co.
+</footer>
+
 </body>
 </html>
