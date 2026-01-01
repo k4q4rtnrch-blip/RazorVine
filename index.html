@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RazorVine Jewellery Co.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --fg: #f1f1f1;
+      --muted: #8a8a8a;
+      --accent: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    .logo-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-frame img {
+  display: block;
+  max-width: 100%;
+}
+
+.hero-frame {
+  margin-top: 60px;
+  padding: 40px;
+  border: 2px solid #1f1f1f;
+  background: #0b0b0b;
+}
+
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #3a3a3a;
+  pointer-events: none;
+}
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+
+    header {
+      <div class="logo-frame hero-frame">
+  <img src="assets/razorvine-logo.png" alt="RazorVine Jewellery Co. logo">
+</div>
+      padding-bottom: 120px;
+    }
+
+    header h1 {
+      font-size: clamp(42px, 7vw, 84px);
+      letter-spacing: -1px;
+      margin: 0 0 20px 0;
+    }
+
+    header p {
+      max-width: 520px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 120px 0;
+    }
+
+    section h2 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .two-col p {
+      max-width: 480px;
+      font-size: 18px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .step {
+      border-top: 1px solid #222;
+      padding-top: 20px;
+    }
+
+    .step span {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 2px;
+    }
+
+    .step h3 {
+      margin: 12px 0 10px;
+      font-size: 20px;
+    }
+
+    footer {
+      padding: 80px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--fg);
+      text-decoration: none;
+      border-bottom: 1px solid #444;
+    }
+
+    a:hover {
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .two-col,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <header>
+      <h1>RazorVine<br>Jewellery Co.</h1>
+      <p>
+        Custom-designed and handcrafted jewellery.
+        Built through direct collaboration from concept to completion.
+      </p>
+    </header>
+
+    <section>
+      <h2>Studio</h2>
+      <div class="two-col">
+        <p>
+          RazorVine Jewellery Co. operates as an independent studio focused on
+          bespoke jewellery. Each piece is designed and made through a direct
+          working relationship with the client.
+        </p>
+        <p>
+          The process values clarity, restraint, and material honesty.
+          No mass production. No excess.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Commissions</h2>
+      <div class="process">
+        <div class="step">
+          <span>01</span>
+          <h3>Dialogue</h3>
+          <p>Initial discussion, references, and intent.</p>
+        </div>
+        <div class="step">
+          <span>02</span>
+          <h3>Design</h3>
+          <p>Form development, materials, and refinement.</p>
+        </div>
+        <div class="step">
+          <span>03</span>
+          <h3>Craft</h3>
+          <p>Handmade execution and final delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Works</h2>
+      <div class="two-col">
+        <p>
+          Alongside commissions, select ready-made pieces are released periodically.
+          Availability is limited and unreplicated.
+        </p>
+        <p>
+          Updates and releases are announced through direct channels.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Enquiries and commission requests:<br>
+        <a href="mailto:your@email.com">your@email.com</a>
+      </p>
+    </section>
+
+    <footer>
+      © RazorVine Jewellery Co.
+    </footer>
+
+  </div>
+
+</body>
+</html>
