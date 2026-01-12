@@ -7,39 +7,47 @@
 
   <style>
     /* =====================
-       Root + Global
+       VARIABLES
     ====================== */
     :root {
-      --bg: #0b0b0b;
-      --fg: #f1f1f1;
-      --muted: #8a8a8a;
+      --bg: #0a0a0a;
+      --fg: #f5f5f5;
+      --muted: #7d7d7d;
+      --line: #1f1f1f;
+      --line-soft: #333;
       --accent: #ffffff;
-      --border-dark: #222;
-      --border-light: #3a3a3a;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* =====================
+       RESET / BASE
+    ====================== */
     *,
     *::before,
     *::after {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--fg);
-      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.55;
+      font-family: Inter, Helvetica Neue, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
       color: var(--fg);
       text-decoration: none;
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid var(--line-soft);
     }
 
     a:hover {
@@ -47,85 +55,87 @@
     }
 
     /* =====================
-       Layout
+       LAYOUT
     ====================== */
-    .wrap {
+    .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 140px 24px 90px;
+      padding: 160px 24px 80px;
     }
 
     section {
       padding: 120px 0;
+      border-top: 1px solid var(--line);
     }
 
-    section h2 {
-      margin-bottom: 40px;
-      font-size: 14px;
-      letter-spacing: 2px;
+    section:first-of-type {
+      border-top: none;
+    }
+
+    h2 {
+      margin: 0 0 48px;
+      font-size: 13px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--muted);
     }
 
     /* =====================
-       Navigation
+       NAV
     ====================== */
-    .topbar {
+    .nav {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      height: 110px;
       background: var(--bg);
-      border-bottom: 1px solid var(--border-dark);
-      z-index: 9999;
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
     }
 
-    .topbar-inner {
+    .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 16px 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
 
-    .nav-logo img {
-      height: 80px;
-      width: auto;
-      max-width: none;
+    .nav img {
+      height: 72px;
     }
 
-    .nav-links {
+    .nav ul {
       list-style: none;
       display: flex;
-      gap: 32px;
+      gap: 28px;
       margin: 0;
       padding: 0;
     }
 
-    .nav-links a {
-      font-size: 13px;
+    .nav a {
+      font-size: 12px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--muted);
-      border-bottom: none;
+      border: none;
     }
 
-    .nav-links a:hover {
+    .nav a:hover {
       color: var(--accent);
     }
 
     /* =====================
-       Header / Hero
+       HERO
     ====================== */
     header {
-      padding-bottom: 120px;
+      padding-bottom: 140px;
     }
 
     header h1 {
-      margin: 0 0 20px;
-      font-size: clamp(42px, 7vw, 84px);
+      margin: 0 0 24px;
+      font-size: clamp(44px, 7vw, 88px);
+      line-height: 1.05;
       letter-spacing: -1px;
     }
 
@@ -135,121 +145,102 @@
       color: var(--muted);
     }
 
-    .logo-frame {
-      position: relative;
-      display: inline-block;
-    }
-
     .hero-frame {
+      margin-top: 64px;
+      padding: 56px;
+      border: 2px solid var(--line);
       position: relative;
-      margin-bottom: 60px;
-      padding: 60px;
-      border: 2px solid #1f1f1f;
-      background: var(--bg);
-    }
-
-    .hero-frame img {
-      display: block;
-      max-width: 70vw;
-      height: auto;
     }
 
     .hero-frame::after {
       content: "";
       position: absolute;
-      top: -14px;
-      left: -14px;
-      width: 100%;
-      height: 100%;
-      border: 1px solid var(--border-light);
+      inset: -12px;
+      border: 1px solid var(--line-soft);
       pointer-events: none;
     }
 
     /* =====================
-       Grid Layouts
+       GRIDS
     ====================== */
-    .two-col {
+    .grid-2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 64px;
     }
 
-    .two-col p {
-      max-width: 480px;
-      font-size: 18px;
-    }
-
-    .process {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      gap: 48px;
     }
 
+    .grid-2 p,
+    .grid-3 p {
+      font-size: 18px;
+      max-width: 480px;
+    }
+
+    /* =====================
+       PROCESS
+    ====================== */
     .step {
-      border-top: 1px solid var(--border-dark);
-      padding-top: 20px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
     }
 
     .step span {
-      font-size: 12px;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 3px;
       color: var(--muted);
     }
 
     .step h3 {
-      margin: 12px 0 10px;
+      margin: 14px 0 12px;
       font-size: 20px;
     }
 
     /* =====================
-       Footer
+       FOOTER
     ====================== */
     footer {
       padding: 80px 0 40px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--muted);
+      border-top: 1px solid var(--line);
     }
 
     /* =====================
-       Responsive
+       MOBILE
     ====================== */
-    @media (max-width: 700px) {
-  .topbar {
-    height: auto;
-  }
+    @media (max-width: 720px) {
+      .container {
+        padding-top: 180px;
+      }
 
-  .topbar-inner {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
+      .nav-inner {
+        flex-direction: column;
+        gap: 14px;
+      }
 
-  .nav-links {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+      .nav img {
+        height: 48px;
+      }
 
-  .nav-logo img {
-    height: 44px;
-  }
-
-  .wrap {
-    padding-top: 160px;
-  }
-}
-
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <nav class="topbar">
-    <div class="topbar-inner">
-      <div class="nav-logo">
-        <img src="assets/razorvine-logo4.png" alt="RazorVine logo" />
-      </div>
 
-      <ul class="nav-links">
+  <nav class="nav">
+    <div class="nav-inner">
+      <img src="assets/razorvine-logo4.png" alt="RazorVine logo" />
+      <ul>
         <li><a href="#studio">Studio</a></li>
         <li><a href="#commissions">Commissions</a></li>
         <li><a href="#works">Works</a></li>
@@ -258,60 +249,65 @@
     </div>
   </nav>
 
-  <div class="wrap">
+  <main class="container">
+
     <header>
-      <h1>RazorVine<br />Jewellery Co.</h1>
+      <h1>RazorVine<br>Jewellery Co.</h1>
       <p>
-        Handcrafted jewellery designed to tell a story.<br />
-        Custom pieces • Limited runs • Ethical sourcing
+        Handcrafted statement jewellery.<br>
+        Custom commissions • Limited releases • Ethical sourcing
       </p>
-      <div class="logo-frame hero-frame">
-        <img src="assets/razorvine-order.png" alt="RazorVine Order Process" />
+
+      <div class="hero-frame">
+        <img src="assets/razorvine-order.png" alt="Order process">
       </div>
     </header>
 
     <section id="studio">
       <h2>Studio</h2>
-      <div class="two-col">
+      <div class="grid-2">
         <p>
-          Born from contrast, RazorVine Jewellery Co. delivers custom jewellery with a dangerous elegance. Twisting organic forms with hard, unforgiving lines, our pieces reflect resilience, rebellion, and individuality. No mass production. No compromises. Just statement jewellery with teeth.
+          RazorVine exists in the space between organic growth and sharp intent.
+          Every piece is built to carry weight — visually and emotionally.
+          No mass production. No dilution.
         </p>
         <p>
-          Everything is designed and forged in-house, by founder/jeweller Joseph J Nichols.
+          Designed and forged in-house by
+          Joseph J Nichols.
         </p>
       </div>
     </section>
 
     <section id="commissions">
       <h2>Commissions</h2>
-      <div class="process">
+      <div class="grid-3">
         <div class="step">
           <span>01</span>
-          <h3>Consultation</h3>
-          <p>Initial discussion, references, and design direction — free of charge.</p>
+          <h3>Consult</h3>
+          <p>Concept, references, direction. No obligation.</p>
         </div>
         <div class="step">
           <span>02</span>
           <h3>Design</h3>
-          <p>Sketches, rough models, material sourcing, and refinement.</p>
+          <p>Sketches, materials, refinement and approval.</p>
         </div>
         <div class="step">
           <span>03</span>
-          <h3>Craft</h3>
-          <p>Final approval followed by the forging and finishing process.</p>
+          <h3>Forge</h3>
+          <p>Crafted, finished, and delivered.</p>
         </div>
       </div>
     </section>
 
     <section id="works">
       <h2>Works</h2>
-      <div class="two-col">
+      <div class="grid-2">
         <p>
-          Alongside commissions, select ready-made pieces are released periodically.
-          Availability is limited and never replicated.
+          Limited ready-made pieces are released periodically.
+          Once gone, they are never reproduced.
         </p>
         <p>
-          Releases and updates are announced via social channels and WhatsApp.
+          Announcements are made via social channels and WhatsApp.
         </p>
       </div>
     </section>
@@ -319,21 +315,19 @@
     <section id="contact">
       <h2>Contact</h2>
       <p>
-        Enquiries and commission requests:<br />
-        <a href="https://wa.me/447421264072" target="_blank">Chat on WhatsApp</a>
+        Commission enquiries:<br>
+        <a href="https://wa.me/447421264072" target="_blank">WhatsApp</a>
       </p>
-      <p>Follow us for updates on new pieces, industry insights, and jewellery innovation.</p>
-      <div class="insta-grid" id="insta-grid"></div>
-      <p class="insta-follow"><a href="https://instagram.com/razorvine.custom" target="_blank">@razorvine.custom</a></p>
+      <p>
+        Follow releases and studio updates:<br>
+        <a href="https://instagram.com/razorvine.custom" target="_blank">@razorvine.custom</a>
+      </p>
     </section>
 
     <footer>
       © RazorVine Jewellery Co.
     </footer>
-  </div>
-</body>
-</html>
 
-
+  </main>
 </body>
 </html>
